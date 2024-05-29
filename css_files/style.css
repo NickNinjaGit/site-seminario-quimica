@@ -1,0 +1,324 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../src/fonts/OpenSans_Condensed-Regular.ttf");
+}
+
+/* Estilos globais para garantir margem e padding zero */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+/* Configuração do grid principal */
+#gridconfig {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Elementos de decoração */
+#left-decoration, #right-decoration {
+    position: absolute;
+    width: 30px;  /* Ajuste a largura conforme necessário */
+    height: 100%; /* Ajuste a altura conforme necessário */
+    overflow: hidden;
+    background: rgb(95, 86, 73); /* Cor ou imagem para a decoração */
+}
+
+/* Posicionando as decorações nos cantos */
+#left-decoration {
+    top: 0;
+    left: 0;
+}
+
+#right-decoration {
+    top: 0;
+    right: 0;
+}
+
+/* Estilo para o fundo da navegação com imagem */
+#navbg {
+    position: relative; /* Necessário para o posicionamento absoluto do pseudo-elemento */
+    padding: 1em;
+}
+
+#navbg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: gray; /* Cor de fundo desejada */
+    opacity: 0.6; /* Opacidade do fundo */
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo */
+}
+
+/* Ajuste de navegação para centralização */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    font-family: sans-serif;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 0.5em 2em;
+    color: #fff; /* Ajuste a cor conforme necessário */
+    text-align: center;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para melhor visibilidade */
+    border-radius: 5px; /* Bordas arredondadas para um visual mais agradável */
+    position: relative; /* Necessário para ficar acima do pseudo-elemento */
+}
+
+/* Configuração do conteúdo */
+#content {
+    font-family: 'Lucida Sans';
+    text-align: center;
+    display: flexbox;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#Tittle {
+    font-family: 'Open Sans';
+    font-size: 200%;
+    font-weight: bold;
+    border: 2px;
+    border-style: solid;
+    position: relative;
+    top: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    padding: 0.3em 1em; /* Adiciona um pouco de padding para espaçamento interno */
+    animation: fadeInUp 1.5s;
+}
+
+.textbg {
+    border: 2px;
+    border-style: solid;
+    position: relative;
+    padding: 0.3em 1em;
+    top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-radius: 3px;
+    background-color: rgba(128, 128, 128, 0.6); /* Grey with 60% opacity */
+    animation: fadeInLeft 1.5s;
+}
+.Centered {
+    font-size: 160%;
+    color: black;
+    position: relative; /* Ensure it's positioned above the background */
+}
+
+#thumb
+{
+    width: 40%;
+    height: auto;
+    position: relative;
+    top:10em;
+    border: 2px;
+    border-style: solid;
+    z-index: -1;
+}
+#Refferences {
+    list-style: disc;
+    text-align: left;
+    font-size: 120%;
+    position: relative;
+    margin-left: 800px;
+    margin-right: 800px;
+    margin-top: 6.5em;
+    overflow: hidden;
+    animation: fadeInLeft 2s;
+}
+
+#Refferences_li {
+    padding: 0.5em;
+}
+
+.topicos {
+    font-family: sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 2em; /* Usar margin ao invés de gap */
+    position: relative;
+    left: 0.5em;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: #fff;
+    top: 5em;
+    padding: 10px 10px;
+    animation: FadeIn 1s;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+        scale: 2;
+        top: 23em;
+    }
+    to {
+        opacity: 1;
+        scale: 1 1;
+    }
+}
+
+#expand_img img {
+    position: fixed;
+    left: 28%;
+    top: 30%;
+    width: 45%;
+    height: auto;
+    outline: black 2px solid;
+}
+
+#expand_img:target img {
+    position: fixed;
+    width: 80%;
+    height: 95%;
+    top: 2vh;
+    left: 10%;
+    padding: 5px;
+    border: solid 1px #333;
+    box-shadow: 0 0 25px 10px #000;
+    background: #FFF;
+    border-radius: 5px;
+}
+
+#expand_img:target ~ .fechar {
+    position: fixed;
+    left: 18vh;
+    top: 0vh;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    display: block;
+}
+
+#expand_img:target ~ .info {
+    display: none;
+}
+
+/* Escondendo o #detalhes por padrão */
+.fechar {
+    content: url("../src/images/close_icon.png");
+    background-color: #fff;
+    border-style: solid;
+    border-radius: 3em;
+    border-color: gray;
+    position: fixed;
+    left: 12em;
+    top: 0em;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    display: none;
+}
+
+.info {
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    background-color: grey;
+    opacity: 0.6;
+    padding: 0.5em;
+    position: relative;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 38%;
+}
+
+
+.descricao {
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    background-color: grey;
+    opacity: 0.6;
+    padding: 1em;
+    position: relative;
+    margin-left: -800px;
+    margin-right: -800px;
+    top: -1em;
+}
+
+.maquete
+{
+    transform: rotate(-90deg);
+    width: 45%;
+    height: auto;
+    position: relative;
+    top: -10em;
+}
+
+.container-slider {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 5em;
+    min-height: 110vh;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.container-images {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 600px;
+}
+
+.slider {
+    opacity: 0;
+    position: absolute;
+    transition: opacity .2s;
+    position: fixed;
+    left: 28%;
+    top: 30%;
+    width: 45%;
+    height: auto;
+    
+}
+
+.slider img {
+    
+    outline: black 2px solid;
+}
+
+.on {
+    opacity: 1;
+}
+
+#prev-button, #next-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#prev-button img, #next-button img {
+    width: 200%;
+    height: 150%;
+    margin: 0px 60px;
+}
+
+#prev-button {
+    transform: rotate(180deg);
+}
