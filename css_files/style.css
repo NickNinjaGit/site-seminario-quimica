@@ -10,6 +10,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    overflow: hidden;
 }
 
 
@@ -103,24 +104,42 @@ nav a {
     animation: fadeInUp 1.5s;
 }
 
-.textbg {
+
+
+
+#Centered {   
+    
     border: 2px;
     border-style: solid;
     position: relative;
-    padding: 0.3em 1em;
-    top: 10em;
+    padding: 1em 1em;
+    top: 5em;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
     border-radius: 3px;
     background-color: rgba(128, 128, 128, 0.6); /* Grey with 60% opacity */
     animation: fadeInLeft 1.5s;
-}
-.Centered {
     font-size: 160%;
     color: black;
     position: relative; /* Ensure it's positioned above the background */
 }
+
+#credits
+{
+    padding: 1em 1em;
+    justify-content: center;
+    position: relative;
+    top: 15em;
+    left: 30%;
+    background-color: rgba(128, 128, 128, 0.6); /* Grey with 60% opacity */
+    width: fit-content;
+    border: 2px;
+    border-style: solid;
+    border-radius: 3px;
+    animation: backInUp 1s;
+}
+
 
 #thumb
 {
